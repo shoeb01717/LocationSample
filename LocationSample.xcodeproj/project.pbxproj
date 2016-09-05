@@ -16,6 +16,7 @@
 		967DB81D1D7DC10700D23E8F /* DistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967DB81C1D7DC10700D23E8F /* DistanceViewController.swift */; };
 		967DB8201D7DD10B00D23E8F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967DB81F1D7DD10B00D23E8F /* Utils.swift */; };
 		967DB8221D7DD4BB00D23E8F /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967DB8211D7DD4BB00D23E8F /* RecordViewController.swift */; };
+		967DB8251D7DD95B00D23E8F /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967DB8241D7DD95B00D23E8F /* RecordTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		967DB81C1D7DC10700D23E8F /* DistanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceViewController.swift; sourceTree = "<group>"; };
 		967DB81F1D7DD10B00D23E8F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		967DB8211D7DD4BB00D23E8F /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		967DB8241D7DD95B00D23E8F /* RecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		C50503151567DC5B6E61F361 /* Pods-LocationSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-LocationSample/Pods-LocationSample.release.xcconfig"; sourceTree = "<group>"; };
 		D359E0A77890D73137B56F71 /* Pods-LocationSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LocationSample/Pods-LocationSample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 		967DB8041D7DAB8500D23E8F /* LocationSample */ = {
 			isa = PBXGroup;
 			children = (
+				967DB8231D7DD94000D23E8F /* View */,
 				967DB81E1D7DD0FB00D23E8F /* Utils */,
 				967DB8191D7DAF7100D23E8F /* ViewControllers */,
 				967DB8051D7DAB8500D23E8F /* AppDelegate.swift */,
@@ -111,6 +114,14 @@
 				967DB81F1D7DD10B00D23E8F /* Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		967DB8231D7DD94000D23E8F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				967DB8241D7DD95B00D23E8F /* RecordTableViewCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +248,7 @@
 			files = (
 				967DB8061D7DAB8500D23E8F /* AppDelegate.swift in Sources */,
 				967DB81B1D7DAF8000D23E8F /* CurrentLocationViewController.swift in Sources */,
+				967DB8251D7DD95B00D23E8F /* RecordTableViewCell.swift in Sources */,
 				967DB8221D7DD4BB00D23E8F /* RecordViewController.swift in Sources */,
 				967DB81D1D7DC10700D23E8F /* DistanceViewController.swift in Sources */,
 				967DB8201D7DD10B00D23E8F /* Utils.swift in Sources */,
