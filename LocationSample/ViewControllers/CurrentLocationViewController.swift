@@ -40,7 +40,9 @@ class CurrentLocationViewController: UIViewController {
                             addressString = addressString.stringByAppendingString(",")
                         }
                         addressString = String(addressString.characters.dropLast())
-                        self.addressLabel.text = addressString
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.addressLabel.text = addressString
+                        })
                     }
                 }
             }) { error in
