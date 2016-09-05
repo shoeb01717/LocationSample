@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--First-->
@@ -16,9 +17,33 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGy-YH-Eie">
+                                <rect key="frame" x="30" y="28" width="540" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="J64-cV-Wif">
+                                <rect key="frame" x="0.0" y="48.5" width="600" height="502.5"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="J64-cV-Wif" secondAttribute="bottom" id="7Dy-xt-1VC"/>
+                            <constraint firstItem="vGy-YH-Eie" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="DIC-BT-Egd"/>
+                            <constraint firstItem="vGy-YH-Eie" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="10" id="MZR-eB-Thg"/>
+                            <constraint firstItem="J64-cV-Wif" firstAttribute="top" secondItem="vGy-YH-Eie" secondAttribute="bottom" id="V5d-yx-Fbj"/>
+                            <constraint firstItem="J64-cV-Wif" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="b7X-Lf-TWh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vGy-YH-Eie" secondAttribute="trailing" constant="10" id="ssR-NV-1rC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="J64-cV-Wif" secondAttribute="trailing" constant="-20" id="yTq-8A-KPA"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="vGy-YH-Eie" id="kEP-OH-PMk"/>
+                        <outlet property="mapView" destination="J64-cV-Wif" id="WBS-WO-iaZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
