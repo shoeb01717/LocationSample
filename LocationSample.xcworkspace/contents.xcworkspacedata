@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:bikehike_course.gpx">
+   </FileRef>
+   <FileRef
       location = "group:LocationSample.xcodeproj">
    </FileRef>
    <FileRef
