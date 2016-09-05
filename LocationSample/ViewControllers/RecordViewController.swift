@@ -10,10 +10,20 @@ import UIKit
 
 class RecordViewController: UIViewController {
 
+    var recordArray:[[String:AnyObject]]?
+    
+    @IBOutlet var recordTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        self.recordArray = defaults.objectForKey("SavedArray") as? [[String:AnyObject]] ?? [[String:AnyObject]]()
+    
+        self.recordTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,3 +43,35 @@ class RecordViewController: UIViewController {
     */
 
 }
+
+
+extension RecordViewController : UITableViewDataSource {
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let record = self.recordArray {
+            return record.count
+        }
+        return 0
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("RecordTableViewCell", forIndexPath: indexPath) as! RecordTableViewCell
+        let dictionaryData = self.recordArray![indexPath.row]
+        cell.titleLabel.text = dictionaryData["distance"] as? String
+        
+        let recordDate = dictionaryData["date"] as! NSDate
+        cell.subtitleLabel.text = recordDate.dateStringWithFormat("yyyy-MM-dd hh:mm:ss")
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        return cell
+    }
+    
+    
+    
+}
+
+extension RecordViewController : UITableViewDelegate {
+    
+}
+
+

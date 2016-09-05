@@ -22,6 +22,9 @@ class DistanceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+
+        
         Location.getLocation(withAccuracy: .Block, frequency: .Continuous, onSuccess: { foundLocation in
             if self.firstLocation == nil {
                 self.firstLocation = foundLocation
@@ -35,6 +38,13 @@ class DistanceViewController: UIViewController {
             if self.distanceToAlert > 50 {
                 self.distanceToAlert = 0.00
                 Utils.sharedInstance.showAlert("Attention", message: "Disctance Travelled: \(self.totalDistance)")
+                
+                let defaults = NSUserDefaults.standardUserDefaults()
+                var array = defaults.objectForKey("SavedArray") as? [[String:AnyObject]] ?? [[String:AnyObject]]()
+                let record:[String:AnyObject] = ["distance":"Distance: \(self.totalDistance)","date":NSDate()]
+                array.append(record)
+                defaults.setObject(array, forKey: "SavedArray")
+                defaults.synchronize()
             }
             print( "distance : \(self.totalDistance)")
             self.firstLocation = foundLocation

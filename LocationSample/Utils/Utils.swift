@@ -36,3 +36,11 @@ class Utils: NSObject {
     }
 
 }
+
+extension NSDate {
+    func dateStringWithFormat(format: String) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.stringFromDate(self)
+    }
+}
