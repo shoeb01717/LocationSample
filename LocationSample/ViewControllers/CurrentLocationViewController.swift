@@ -7,12 +7,50 @@
 //
 
 import UIKit
+import SwiftLocation
+import MapKit
 
 class CurrentLocationViewController: UIViewController {
 
+    @IBOutlet var mapView: MKMapView!
+    @IBOutlet var addressLabel: UILabel!
+    let annotation = MKPointAnnotation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        Location.getLocation(withAccuracy: .Block,frequency: .Continuous,onSuccess: { foundLocation in
+            let region = MKCoordinateRegionMakeWithDistance(
+                foundLocation.coordinate, 500, 500)
+            
+            self.mapView.setRegion(region, animated: true)
+            
+            
+            self.annotation.coordinate = CLLocationCoordinate2D(latitude: foundLocation.coordinate.latitude, longitude: foundLocation.coordinate.longitude)
+            
+            
+            Location.reverse(coordinates: foundLocation.coordinate, onSuccess: { foundPlacemark in
+                // foundPlacemark is a CLPlacemark object
+                if let formataddress = foundPlacemark.addressDictionary!["FormattedAddressLines"]{
+                
+                    if formataddress.count > 0 {
+                        var addressString:String = ""
+                        for item in formataddress as! [String] {
+                            addressString = addressString.stringByAppendingString(item as String)
+                            addressString = addressString.stringByAppendingString(",")
+                        }
+                        addressString = String(addressString.characters.dropLast())
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.addressLabel.text = addressString
+                        })
+                    }
+                }
+            }) { error in
+            }
+        }) { (lastValidLocation, error) in
+            
+        }
+        self.mapView.addAnnotation(self.annotation)
         // Do any additional setup after loading the view.
     }
 
